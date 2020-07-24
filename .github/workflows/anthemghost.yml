@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: BuildAnthemGhostContainer
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -27,5 +27,5 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_ACCESSKEY }}
           registry: austinanthem.azurecr.io
-          repository: austinanthem.azurecr.io/anthem-ghost
-          tags: latest, $GITHUB_RUN_NUMBER
+          repository: anthem-ghost
+          tags: latest, ${{ github.run_number }}
