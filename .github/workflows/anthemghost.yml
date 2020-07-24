@@ -29,3 +29,4 @@ jobs:
           registry: austinanthem.azurecr.io
           repository: anthem-ghost
           tags: latest, ${{ github.run_number }}
+          path: ./3/alpine/
