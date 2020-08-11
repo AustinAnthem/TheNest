@@ -15,18 +15,19 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
+    name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and push Docker images
+      - name: Build and push Docker images to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_ACCESSKEY }}
-          registry: austinanthem.azurecr.io
-          repository: anthem-ghost
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: austin-anthem/anthem-ghost
           tags: latest, ${{ github.run_number }}
           path: ./3/alpine/
