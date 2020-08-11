@@ -28,6 +28,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: austin-anthem/anthem-ghost/the-nest
+          repository: austinanthem/thenest/gracklenest
           tags: latest, ${{ github.run_number }}
           path: ./3/alpine/
